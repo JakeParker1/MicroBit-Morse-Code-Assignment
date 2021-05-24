@@ -3,7 +3,7 @@
 /*
 Assignment 1
 Morse Code
-20/05/2021
+24/05/2021
 Version 1
 */
 
@@ -37,9 +37,26 @@ int main()
      
      uBit.serial.send(Lighty);
      }
-    
-/*Conversion from Morse Code to Alphabet & Numbers*/
-morse = [".-", "-...", "-.-.", "-..", ".", "..-.", "--.", "....", "..", ".---", "-.-", ".-..", "--", "-.", "---", ".--.", "--.-", ".-.", "...", "-", "..-", "...-", ".--", "-..-", "-.--", "--..", ".----", "..---", "...--", "....-", ".....", "-....", "--...", "---..", "----.", "-----"]
-alphabet = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "1", "2", "3", "4", "5", "6", "7", "8", "9", "0"]
-
-
+     
+     //While this statement is true
+     while true:
+     
+     //If the light level is less than 10
+     if (Lighty<10)
+     {
+         //it will send through the light level to the computer
+     lightChar= printf("light level is %lu\n", Lighty);
+     
+      uBit.serial.send(Lighty);
+      
+      }
+      // If the first statement is not true and light levels are over 10 then 
+     else if (Lighty>10)
+     {
+         //it will send through the light level to the computer
+     lightChar= printf("light level is %lu\n", Lighty);
+     
+     uBit.serial.send(Lighty);
+     
+     }
+     
