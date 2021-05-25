@@ -41,7 +41,7 @@ int main()
  while true:
  
  //If the light level is less than 10
- if (Lighty<180)
+ if (Lighty<10)
  {
  //it will send the light level to the computer through serial communication
  lightChar= printf("light level is %lu\n", Lighty);
@@ -49,7 +49,7 @@ int main()
   
   }
   // If the first statement is not true and light levels are over 10 then 
- else if (Lighty>180)
+ else if (Lighty>10)
  {
      //it will send through the light level to the computer
  lightChar= printf("light level is %lu\n", Lighty);
