@@ -3,8 +3,8 @@
 /*
 Assignment 1
 Morse Code
-25/05/2021
-Version 5
+26/05/2021
+Version 6
 */
 
 #include "MicroBit.h"
@@ -22,25 +22,30 @@ int c
 
 int main()
 {
+
+//Initialising microbit runtime
     uBit.init();
-    //to send a serial signal
-    uBit.serial.baud(115200);
     
+//to send a serial signal thorugh putty
+    uBit.serial.baud(115200);
+
+//Create while loop to inform light levels
     while(1)
     {
-        //this comand sends the light display to computer
+        
+//this comand sends the light display to computer
      Lighty=uBit.display.readLightLevel();
         
-        // this will send the light level to the computer through serial communication
+// this will send the light level to the computer through serial communication
     lightChar= printf("light level is %lu\n", Lighty);
           uBit.serial.send(Lighty);
      
-     //gives a 1 second pause
+//gives a 1 second pause
      uBit.sleep(1000);
      
      }
      
-//While this statement is true
+//Create while loop to inform if light levels over or under 10
  while (1)
  
  {
@@ -94,7 +99,7 @@ morse = [".-", "-...", "-.-.", "-..", ".", "..-.", "--.", "....", "..", ...
 ".---", "-.-", ".-..", "--", "-.", "---", ".--.", "--.-", ".-.", "...", ...
 "-", "..-", "...-", ".--", "-..-", "-.--", "--..", ".----", "..---", ...
 "...--", "....-", ".....", "-....", "--...", "---..", "----.", "-----"]
-//It will produce its enlish translation as shown below
+//It will produce its English translation as shown below
 alphabet = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", ...
 "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "1", ...
 "2", "3", "4", "5", "6", "7", "8", "9", "0"]
