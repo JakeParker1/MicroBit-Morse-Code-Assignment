@@ -4,7 +4,7 @@
 Assignment 1
 Morse Code
 25/05/2021
-Version 4
+Version 5
 */
 
 #include "MicroBit.h"
@@ -16,6 +16,9 @@ int Lighty;
 
 //creating new variable
 char lightChar;
+
+//creating new variable
+int c
 
 int main()
 {
@@ -40,21 +43,21 @@ int main()
 //While this statement is true
  while (1)
  
- 
+ {
  //If the light level is less than 10
  if (Lighty<10)
- {
+ 
  //it will send the light level to the computer through serial communication
  lightChar= printf("light level is %lu\n", Lighty);
  
  //and will produce the number 0
- lightchar=printf("0",lighty);
+ lightChar=printf("0",lighty);
  uBit.serial.send(Lighty);
  
  //gives a 1 second pause
  uBit.sleep(1000);
   
-  // If the first statement is not true and light levels are over 10 then 
+  // Else if the first statement is not true and light levels are over 10 then 
  else if (Lighty>10)
  
      //it will send through the light level to the computer
@@ -66,7 +69,23 @@ int main()
  
  //gives a 1 second pause
  uBit.sleep(1000);
+ 
  }
+ 
+ //creating a while loop to count pulse
+ while(1)
+ {
+//if external button is pressed
+    if (uBit.io.P0.getDigitalValue()==1);
+ 
+//Counter adds 1
+    C++;
+
+//Microbit displays whatever C is
+    uBit.display.print(C);
+
+//uBit pauses for 2 seconds after button pressed
+    uBit.sleep(2000);
  }
  
  //Conversion from Morse Code to Alphabet & Numbers 
