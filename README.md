@@ -3,8 +3,8 @@
 /*
 Assignment 1
 Morse Code
-26/05/2021
-Version 6
+27/05/2021
+Version 7
 */
 
 #include "MicroBit.h"
@@ -80,7 +80,7 @@ int main()
  //creating a while loop to count pulse
  while(1)
  {
-//if external button is pressed
+//if light is on >10
     if (uBit.io.P0.getDigitalValue()==1);
  
 //Counter adds 1
@@ -93,6 +93,23 @@ int main()
     uBit.sleep(2000);
  }
  
+ while(1)
+ {
+//if light if off 10<
+    if (uBit.io.P0.getDigitalValue()==0);
+    
+//Counter adds 1
+    C++;
+    
+//Microbit displays whatever C is
+    uBit.display.print(C);
+
+//uBit pauses for 2 seconds after button pressed
+    uBit.sleep(2000);
+    
+}    
+
+
  //Conversion from Morse Code to Alphabet & Numbers 
  //When light shows these sequences
 morse = [".-", "-...", "-.-.", "-..", ".", "..-.", "--.", "....", "..", ...
