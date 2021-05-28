@@ -3,21 +3,21 @@
 /*
 Assignment 1
 Morse Code
-27/05/2021
-Version 7
+28/05/2021
+Version 8
 */
 
 #include "MicroBit.h"
 
 MicroBit uBit;
 
-//creating new variable
+//Declaring new variable
 int Lighty;
 
-//creating new variable
+//Declaring new variable
 char lightChar;
 
-//creating new variable
+//Declaring new variable
 int c
 
 int main()
@@ -26,21 +26,21 @@ int main()
 //Initialising microbit runtime
     uBit.init();
     
-//to send a serial signal thorugh putty
+//To send a serial signal thorugh putty
     uBit.serial.baud(115200);
 
 //Create while loop to inform light levels
     while(1)
     {
         
-//this comand sends the light display to computer
+//This comand sends the light display to computer
      Lighty=uBit.display.readLightLevel();
         
-// this will send the light level to the computer through serial communication
+// This will send the light level to the computer through serial communication
     lightChar= printf("light level is %lu\n", Lighty);
           uBit.serial.send(Lighty);
      
-//gives a 1 second pause
+//Gives a 1 second pause
      uBit.sleep(1000);
      
      }
@@ -52,35 +52,35 @@ int main()
  //If the light level is less than 10
  if (Lighty<10)
  
- //it will send the light level to the computer through serial communication
+ //It will send the light level to the computer through serial communication
  lightChar= printf("light level is %lu\n", Lighty);
  
- //and will produce the number 0
+ //And will produce the number 0
  lightChar=printf("0",lighty);
  uBit.serial.send(Lighty);
  
- //gives a 1 second pause
+ //Gives a 1 second pause
  uBit.sleep(1000);
   
-  // Else if the first statement is not true and light levels are over 10 then 
+ //Else if the first statement is not true and light levels are over 10 then 
  else if (Lighty>10)
  
-     //it will send through the light level to the computer
+ //It will send through the light level to the computer
  lightChar= printf("light level is %lu\n", Lighty);
  
- //and will produce the number 1
+ //And will produce the number 1
  lightchar=printf("1",lighty);
  uBit.serial.send(Lighty);
  
- //gives a 1 second pause
+ //Gives a 1 second pause
  uBit.sleep(1000);
  
  }
  
- //creating a while loop to count pulse
+ //Creating a while loop to count pulse
  while(1)
  {
-//if light is on >10
+//If light is on >10
     if (uBit.io.P0.getDigitalValue()==1);
  
 //Counter adds 1
@@ -93,9 +93,10 @@ int main()
     uBit.sleep(2000);
  }
  
+ //Creating while loop
  while(1)
  {
-//if light if off 10<
+//If light if off 10<
     if (uBit.io.P0.getDigitalValue()==0);
     
 //Counter adds 1
@@ -109,14 +110,43 @@ int main()
     
 }    
 
+const char* characters = "abcdefghijklmnopqrstuvwxyz0123456789";
 
- //Conversion from Morse Code to Alphabet & Numbers 
- //When light shows these sequences
-morse = [".-", "-...", "-.-.", "-..", ".", "..-.", "--.", "....", "..", ...
-".---", "-.-", ".-..", "--", "-.", "---", ".--.", "--.-", ".-.", "...", ...
-"-", "..-", "...-", ".--", "-..-", "-.--", "--..", ".----", "..---", ...
-"...--", "....-", ".....", "-....", "--...", "---..", "----.", "-----"]
-//It will produce its English translation as shown below
-alphabet = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", ...
-"m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "1", ...
-"2", "3", "4", "5", "6", "7", "8", "9", "0"]
+const char* mappings[] = {
+    ".-\0",     //a
+    "-...\0",   //b
+    "-.-.\0",   //c
+    "-..\0",    //d
+    ".\0",      //e
+    "..-.\0",   //f
+    "--.\0",    //g
+    "....\0",   //h
+    "..\0",     //i
+    ".---\0",   //j
+    "-.-\0",    //k
+    ".-..\0",   //l
+    "--\0",     //m
+    "-.\0",     //n
+    "---\0",    //o
+    ".--.\0",   //p
+    "--.-\0",   //q
+    ".-.\0",    //r
+    "...\0",    //s
+    "-\0",      //t
+    "..-\0",    //u
+    "...-\0",   //v
+    ".--\0",    //w
+    "-..-\0",   //x
+    "-.--\0",   //y
+    "--..\0",   //z
+    "-----\0",  //0
+    ".----\0",  //1
+    "..---\0",  //2
+    "...--\0",  //3
+    "....-\0",  //4
+    ".....\0",  //5
+    "-....\0",  //6
+    "--...\0",  //7
+    "---..\0",  //8
+    "----.\0",  //9
+};
