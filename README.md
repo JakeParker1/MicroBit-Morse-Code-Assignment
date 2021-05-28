@@ -110,8 +110,10 @@ int main()
     
 }    
 
+//Define set of characters that will need to be supported
 const char* characters = "abcdefghijklmnopqrstuvwxyz0123456789";
 
+//Translating the morse code into letters and numbers
 const char* mappings[] = {
     ".-\0",     //a
     "-...\0",   //b
